@@ -1,9 +1,6 @@
 package Plate_Ordering;
 
-public class Vehicle {
-
-
-    public abstract class Vehicle {
+  public abstract class Vehicle {
 
         protected String chassisNumber;
         protected String formerPlate;
@@ -37,4 +34,4 @@ public class Vehicle {
             return category.getPrice();
         }
     }
-}
+
