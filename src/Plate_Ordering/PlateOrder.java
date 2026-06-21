@@ -3,11 +3,11 @@ package Plate_Ordering;
 public class PlateOrder {
     private String orderID;
     private int plateNumber;
-    private String userBuyer;
+    private User userBuyer;
     private String targetVehicle;
     private String Status;
 
-    public PlateOrder(String orderID, int plateNumber, String userBuyer, String targetVehicle, String Status){
+    public PlateOrder(String orderID, int plateNumber, User userBuyer, String targetVehicle, String Status){
         this.orderID = orderID;
         this.plateNumber = plateNumber;
         this.userBuyer = userBuyer;
@@ -25,7 +25,7 @@ public class PlateOrder {
     public void setplateNumber(int plateNumber){
         this.plateNumber = plateNumber;
     }
-    public String getuserBuyer(){
+    public User getuserBuyer(){
         return userBuyer;
     }
     public String gettargetVehicle(){
@@ -38,6 +38,23 @@ public class PlateOrder {
         this.Status = Status;
     }
 
+
+    public void PlateOrderDisplay (){
+        System.out.println("===== PLATE ORDER #" + orderID + " =====");
+        System.out.println("STATUS: " + Status);
+        System.out.println("REQUESTED PLATE: " + plateNumber);
+        System.out.println("CUSTOMER: " + userBuyer.getFullName());
+        System.out.println("VEHICLE: " + targetVehicle );
+        System.out.println("=============================");
+    }
+
+    public static void main(String[] args) {
+        User cust = new User("abc", "14qw", "kebe", "0914257861", "buy");
+
+        PlateOrder order = new PlateOrder("1441", 5545, cust, "nissan", "pending");
+
+        order.PlateOrderDisplay();
+    }
 
 
 
