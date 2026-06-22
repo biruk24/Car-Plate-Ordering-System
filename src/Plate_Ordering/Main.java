@@ -213,14 +213,14 @@ public class Main {
             System.out.println(" ");
             System.out.println("  Save your ORDER NUMBER to collect your");
             System.out.println("  physical plate at the Transport Authority.");
-            System.out.println("==============================================");
+            System.out.println(" ");
         } catch (ValidationException e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
 
     static void myOrders() {
-        System.out.println("\n--- MY ORDERS ---");
+        System.out.println("\n MY ORDERS ");
 
         List<PlateOrder> orders = Database.getInstance().getOrdersByUser(currentUser.getUsername());
 
@@ -229,10 +229,10 @@ public class Main {
             return;
         }
 
-        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
+        System.out.println(" ");
         System.out.printf("%-12s %-25s %-15s %-15s %-10s %-18s%n",
                 "Order #", "Category", "Owner Name", "Virtual Plate", "Amount", "Status");
-        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
+        System.out.println(" ");
 
         for (PlateOrder o : orders) {
             System.out.printf("%-12s %-25s %-15s %-15s %-10s %-18s%n",
@@ -243,7 +243,7 @@ public class Main {
                     o.getPrice() == 0 ? "FREE" : "ETB " + o.getPrice(),
                     o.getStatus());
         }
-        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
+        System.out.println(" ");
     }
 
     static void trackOrder() {
@@ -262,21 +262,21 @@ public class Main {
                 throw new ValidationException("Order not found: " + orderNum);
             }
 
-            System.out.println("\n==============================================");
+            System.out.println("\n ");
             System.out.println("   ETHIOPIA PLATE ORDER DETAILS");
-            System.out.println("==============================================");
+            System.out.println(" ");
             System.out.println("  Order Number  : " + o.getOrderNumber());
             System.out.println("  Date          : " + o.getDate());
-            System.out.println("----------------------------------------------");
+            System.out.println(" ");
             System.out.println("  Owner Name    : " + o.getOwnerName());
             System.out.println("  Category      : " + o.getCategoryName());
             System.out.println("  Chassis #     : " + o.getChassisNumber());
             System.out.println("  Former Plate  : " + o.getFormerPlate());
-            System.out.println("----------------------------------------------");
+            System.out.println(" ");
             System.out.println("  Virtual Plate : " + o.getVirtualPlate());
             System.out.println("  Amount        : " + (o.getPrice() == 0 ? "FREE" : "ETB " + o.getPrice()));
             System.out.println("  STATUS        : " + o.getStatus());
-            System.out.println("==============================================");
+            System.out.println(" ");
 
             if (o.getStatus().equals("READY") || o.getStatus().equals("APPROVED")) {
                 System.out.println("  Your plate is READY. Visit the Transport");
@@ -286,7 +286,7 @@ public class Main {
             } else if (o.getStatus().equals("COLLECTED")) {
                 System.out.println("  You have already collected this plate.");
             }
-            System.out.println("==============================================");
+            System.out.println(" ");
 
         } catch (ValidationException e) {
             System.out.println("Error: " + e.getMessage());
@@ -296,7 +296,7 @@ public class Main {
     static void adminMenu() {
         boolean running = true;
         while (running) {
-            System.out.println("\n--- ADMIN MENU ---");
+            System.out.println("\n ADMIN MENU ");
             System.out.println("1. View All Orders");
             System.out.println("2. Update Order Status");
             System.out.println("3. View All Users");
@@ -313,7 +313,7 @@ public class Main {
     }
 
     static void viewAllOrders() {
-        System.out.println("\n--- ALL ORDERS ---");
+        System.out.println("\n ALL ORDERS ");
         List<PlateOrder> orders = Database.getInstance().getAllOrders();
 
         if (orders.isEmpty()) {
