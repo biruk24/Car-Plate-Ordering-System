@@ -1,6 +1,5 @@
 package Plate_Ordering;
 
-import Plate_Ordering.User;
 import java.util.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -93,22 +92,22 @@ public class Main {
 
         try {
             if (fullName.isEmpty() || username.isEmpty() || password.isEmpty() || phone.isEmpty()) {
-                throw new ValidationException("All fields are required.");
+                throw new LoginException("All fields are required.");
             }
             if (username.length() < 4) {
-                throw new ValidationException("Username must be at least 4 characters.");
+                throw new LoginException("Username must be at least 4 characters.");
             }
             if (password.length() < 6) {
-                throw new ValidationException("Password must be at least 6 characters.");
+                throw new LoginException("Password must be at least 6 characters.");
             }
             if (!password.equals(confirm)) {
-                throw new ValidationException("Passwords do not match.");
+                throw new LoginException("Passwords do not match.");
             }
             if (phone.length() < 10) {
-                throw new ValidationException("Phone must be at least 10 digits.");
+                throw new LoginException("Phone must be at least 10 digits.");
             }
             if (Database.getInstance().usernameExists(username)) {
-                throw new ValidationException("Username '" + username + "' is already taken.");
+                throw new LoginException("Username '" + username + "' is already taken.");
             }
 
             User newUser = new User(username, password, fullName, phone, "USER");
@@ -116,7 +115,7 @@ public class Main {
 
             System.out.println("Account created! You can now login with username: " + username);
 
-        } catch (ValidationException e) {
+        } catch (LoginException e) {
             System.out.println("Registration failed: " + e.getMessage());
         }
     }
@@ -145,7 +144,6 @@ public class Main {
     static void orderNewPlate() {
         System.out.println("\n--- ORDER NEW PLATE ---");
 
-        // Show all 13 categories
         System.out.println("\nVehicle Categories:");
         VehicleCategory[] cats = VehicleCategory.values();
         for (int i = 0; i < cats.length; i++) {
@@ -173,17 +171,17 @@ public class Main {
             try {
                 catIndex = Integer.parseInt(catInput) - 1;
             } catch (NumberFormatException e) {
-                throw new ValidationException("Please enter a number between 1 and 13.");
+                throw new LoginException("Please enter a number between 1 and 13.");
             }
 
             if (catIndex < 0 || catIndex >= cats.length) {
-                throw new ValidationException("Category must be between 1 and 13.");
+                throw new LoginException("Category must be between 1 and 13.");
             }
             if (chassis.isEmpty() || formerPlate.isEmpty() || ownerName.isEmpty()) {
-                throw new ValidationException("Chassis, former plate, and owner name are required.");
+                throw new LoginException("Chassis, former plate, and owner name are required.");
             }
             if (chassis.length() < 5) {
-                throw new ValidationException("Chassis number must be at least 5 characters.");
+                throw new LoginException("Chassis number must be at least 5 characters.");
             }
 
             VehicleCategory selectedCat = cats[catIndex];
@@ -214,7 +212,7 @@ public class Main {
             System.out.println("  Save your ORDER NUMBER to collect your");
             System.out.println("  physical plate at the Transport Authority.");
             System.out.println("==============================================");
-        } catch (ValidationException e) {
+        } catch (LoginException e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
@@ -253,13 +251,13 @@ public class Main {
 
         try {
             if (orderNum.isEmpty()) {
-                throw new ValidationException("Please enter an order number.");
+                throw new LoginException("Please enter an order number.");
             }
 
             PlateOrder o = Database.getInstance().findOrder(orderNum);
 
             if (o == null) {
-                throw new ValidationException("Order not found: " + orderNum);
+                throw new LoginException("Order not found: " + orderNum);
             }
 
             System.out.println("\n==============================================");
@@ -288,7 +286,7 @@ public class Main {
             }
             System.out.println("==============================================");
 
-        } catch (ValidationException e) {
+        } catch (LoginException e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
@@ -347,7 +345,7 @@ public class Main {
         try {
             PlateOrder o = Database.getInstance().findOrder(orderNum);
             if (o == null) {
-                throw new ValidationException("Order not found: " + orderNum);
+                throw new LoginException("Order not found: " + orderNum);
             }
 
             System.out.println("Current status: " + o.getStatus());
@@ -363,12 +361,12 @@ public class Main {
             else if (choice.equals("2")) newStatus = "APPROVED";
             else if (choice.equals("3")) newStatus = "READY";
             else if (choice.equals("4")) newStatus = "COLLECTED";
-            else throw new ValidationException("Invalid choice. Enter 1-4.");
+            else throw new LoginException("Invalid choice. Enter 1-4.");
 
             Database.getInstance().updateStatus(orderNum, newStatus);
             System.out.println("Status updated to: " + newStatus);
 
-        } catch (ValidationException e) {
+        } catch (LoginException e) {
             System.out.println("Error: " + e.getMessage());
         }
     }

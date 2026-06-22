@@ -1,0 +1,2 @@
+admin|admin123|System Admin|0900000000|ADMIN
+abebe|pass123|Abebe Kebede|0911234567|USER

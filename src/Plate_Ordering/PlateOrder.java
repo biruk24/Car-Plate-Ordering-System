@@ -1,56 +1,84 @@
 package Plate_Ordering;
-
 public class PlateOrder {
-    private String orderID;
-    private int plateNumber;
-    private User userBuyer;
-    private Vehicle Vehicletype;
-    private String Status;
 
-    public PlateOrder(String orderID, int plateNumber, User userBuyer, Vehicle Vehicletype, String Status){
-        this.orderID = orderID;
-        this.plateNumber = plateNumber;
-        this.userBuyer = userBuyer;
-        this.Vehicletype = Vehicletype;
-        this.Status = "pending";
 
-    }
+    private static int counter = 1000;
 
-    public String getrderID(){
-        return orderID;
-    }
-    public int getplatenumber(){
-        return plateNumber;
-    }
-    public void setplateNumber(int plateNumber){
-        this.plateNumber = plateNumber;
-    }
-    public User getuserBuyer(){
-        return userBuyer;
-    }
-    public Vehicle getVehicletype(){
-        return Vehicletype;
-    }
-    public String getStatus(){
-        return Status;
-    }
-    public void setStatus(String Status){
-        this.Status = Status;
+    private String orderNumber;
+    private String username;
+    private String categoryName;
+    private String chassisNumber;
+    private String formerPlate;
+    private String ownerName;
+    private String virtualPlate;
+    private int    price;
+    private String status;
+    private String date;
+
+
+    public PlateOrder(String username, VehicleCategory category,
+                      String chassis, String formerPlate, String ownerName, String date) {
+        counter++;
+        this.orderNumber  = "ETH-" + counter;
+        this.username     = username;
+        this.categoryName = category.getName();
+        this.chassisNumber= chassis;
+        this.formerPlate  = formerPlate;
+        this.ownerName    = ownerName;
+        this.price        = category.getPrice();
+        this.status       = "PENDING";
+        this.date         = date;
+
+        this.virtualPlate = category.getPrefix() + "-" + (10000 + (int)(Math.random() * 89999));
     }
 
 
-    public void PlateOrderDisplay (){
-        System.out.println("===== PLATE ORDER #" + orderID + " =====");
-        System.out.println("STATUS: " + Status);
-        System.out.println("REQUESTED PLATE: " + plateNumber);
-        System.out.println("CUSTOMER: " + userBuyer.getFullName());
-        System.out.println("VEHICLE: " + Vehicletype.getCategory());
-        System.out.println("=============================");
+    public PlateOrder(String orderNumber, String username, String categoryName,
+                      String chassis, String formerPlate, String ownerName,
+                      String virtualPlate, int price, String status, String date) {
+        this.orderNumber   = orderNumber;
+        this.username      = username;
+        this.categoryName  = categoryName;
+        this.chassisNumber = chassis;
+        this.formerPlate   = formerPlate;
+        this.ownerName     = ownerName;
+        this.virtualPlate  = virtualPlate;
+        this.price         = price;
+        this.status        = status;
+        this.date          = date;
     }
 
-    
+
+    public String getOrderNumber()   { return orderNumber; }
+    public String getUsername()      { return username; }
+    public String getCategoryName()  { return categoryName; }
+    public String getChassisNumber() { return chassisNumber; }
+    public String getFormerPlate()   { return formerPlate; }
+    public String getOwnerName()     { return ownerName; }
+    public String getVirtualPlate()  { return virtualPlate; }
+    public int    getPrice()         { return price; }
+    public String getStatus()        { return status; }
+    public String getDate()          { return date; }
+
+    public void setStatus(String status) { this.status = status; }
+
+    public static void setCounter(int c) { counter = c; }
 
 
+    public String toFileLine() {
+        return orderNumber + "|" + username + "|" + categoryName + "|" +
+                chassisNumber + "|" + formerPlate + "|" + ownerName + "|" +
+                virtualPlate + "|" + price + "|" + status + "|" + date;
+    }
 
 
+    public static PlateOrder fromFileLine(String line) {
+        String[] p = line.split("\\|");
+        if (p.length == 10) {
+            return new PlateOrder(p[0], p[1], p[2], p[3], p[4],
+                    p[5], p[6], Integer.parseInt(p[7]), p[8], p[9]);
+        }
+        return null;
+    }
 }
+
