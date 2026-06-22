@@ -14,10 +14,10 @@ public class Main {
     public static void main(String[] args) {
         Database.getInstance();
 
-        System.out.println("==============================================");
+        System.out.println(" ");
         System.out.println("   ETHIOPIA CAR PLATE ORDERING SYSTEM");
         System.out.println("   Minister of Transport and Logistic(MOTL)");
-        System.out.println("==============================================");
+        System.out.println(" ");
 
         boolean running = true;
         while (running) {
@@ -41,7 +41,7 @@ public class Main {
     }
 
     static void login() {
-        System.out.println("\n--- LOGIN ---");
+        System.out.println("\n LOGIN ");
         System.out.print("Username: ");
         String username = scanner.nextLine().trim();
         System.out.print("Password: ");
@@ -74,7 +74,7 @@ public class Main {
     }
 
     static void register() {
-        System.out.println("\n--- REGISTER NEW ACCOUNT ---");
+        System.out.println("\n REGISTER NEW ACCOUNT ");
 
         System.out.print("Full Name: ");
         String fullName = scanner.nextLine().trim();
@@ -124,7 +124,7 @@ public class Main {
     static void userMenu() {
         boolean running = true;
         while (running) {
-            System.out.println("\n--- USER MENU ---");
+            System.out.println("\n USER MENU ");
             System.out.println("1. Order New Plate");
             System.out.println("2. My Orders");
             System.out.println("3. Track Order");
@@ -143,7 +143,7 @@ public class Main {
     }
 
     static void orderNewPlate() {
-        System.out.println("\n--- ORDER NEW PLATE ---");
+        System.out.println("\n ORDER NEW PLATE ");
 
         // Show all 13 categories
         System.out.println("\nVehicle Categories:");
@@ -202,15 +202,15 @@ public class Main {
             Database.getInstance().addOrder(order);
 
             System.out.println("\nVehicle Info: " + vehicle.getVehicleInfo());
-            System.out.println("\n==============================================");
+            System.out.println("\n ");
             System.out.println("  ORDER SUBMITTED SUCCESSFULLY!");
-            System.out.println("==============================================");
+            System.out.println(" ");
             System.out.println("  Order Number  : " + order.getOrderNumber());
             System.out.println("  Virtual Plate : " + order.getVirtualPlate());
             System.out.println("  Category      : " + order.getCategoryName());
             System.out.println("  Amount        : " + ("ETB " + order.getPrice()));
             System.out.println("  Date          : " + order.getDate());
-            System.out.println("==============================================");
+            System.out.println(" ");
             System.out.println("  Save your ORDER NUMBER to collect your");
             System.out.println("  physical plate at the Transport Authority.");
             System.out.println("==============================================");
