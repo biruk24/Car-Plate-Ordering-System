@@ -12,7 +12,6 @@ public class Main {
     static User currentUser = null;
 
     public static void main(String[] args) {
-
         Database.getInstance();
 
         System.out.println("==============================================");
