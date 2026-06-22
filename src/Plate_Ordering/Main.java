@@ -144,10 +144,6 @@ public class Main {
     static void orderNewPlate() {
         System.out.println("\n ORDER NEW PLATE ");
 
-<<<<<<< HEAD
-=======
-        
->>>>>>> 94efc65623045b3eadf51ef8508efff6fc4d2644
         System.out.println("\nVehicle Categories:");
         VehicleCategory[] cats = VehicleCategory.values();
         for (int i = 0; i < cats.length; i++) {
@@ -215,14 +211,17 @@ public class Main {
             System.out.println(" ");
             System.out.println("  Save your ORDER NUMBER to collect your");
             System.out.println("  physical plate at the Transport Authority.");
-<<<<<<< HEAD
+
             System.out.println("==============================================");
         } catch (LoginException e) {
-=======
+
             System.out.println(" ");
-        } catch (ValidationException e) {
->>>>>>> 94efc65623045b3eadf51ef8508efff6fc4d2644
-            System.out.println("Error: " + e.getMessage());
+        } if (catInput.isEmpty()){
+            try {
+                throw new ValidationException("Input cannot be empty");
+            } catch (ValidationException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
