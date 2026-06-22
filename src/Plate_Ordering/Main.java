@@ -124,7 +124,7 @@ public class Main {
     static void userMenu() {
         boolean running = true;
         while (running) {
-            System.out.println("\n--- USER MENU ---");
+            System.out.println("\n USER MENU ");
             System.out.println("1. Order New Plate");
             System.out.println("2. My Orders");
             System.out.println("3. Track Order");
@@ -143,7 +143,7 @@ public class Main {
     }
 
     static void orderNewPlate() {
-        System.out.println("\n--- ORDER NEW PLATE ---");
+        System.out.println("\n ORDER NEW PLATE ");
 
         // Show all 13 categories
         System.out.println("\nVehicle Categories:");
