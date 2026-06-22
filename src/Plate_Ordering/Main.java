@@ -213,14 +213,14 @@ public class Main {
             System.out.println(" ");
             System.out.println("  Save your ORDER NUMBER to collect your");
             System.out.println("  physical plate at the Transport Authority.");
-            System.out.println("==============================================");
+            System.out.println(" ");
         } catch (ValidationException e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
 
     static void myOrders() {
-        System.out.println("\n--- MY ORDERS ---");
+        System.out.println("\n MY ORDERS ");
 
         List<PlateOrder> orders = Database.getInstance().getOrdersByUser(currentUser.getUsername());
 
@@ -229,10 +229,10 @@ public class Main {
             return;
         }
 
-        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
+        System.out.println(" ");
         System.out.printf("%-12s %-25s %-15s %-15s %-10s %-18s%n",
                 "Order #", "Category", "Owner Name", "Virtual Plate", "Amount", "Status");
-        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
+        System.out.println(" ");
 
         for (PlateOrder o : orders) {
             System.out.printf("%-12s %-25s %-15s %-15s %-10s %-18s%n",
