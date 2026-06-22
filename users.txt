@@ -1,2 +1,6 @@
 admin|admin123|System Admin|0900000000|ADMIN
 abebe|pass123|Abebe Kebede|0911234567|USER
+<<<<<<< HEAD
+=======
+spiderman|spiderman2244|Spider Man|0921234423|USER
+>>>>>>> 94efc65623045b3eadf51ef8508efff6fc4d2644
