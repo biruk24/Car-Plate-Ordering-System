@@ -243,7 +243,7 @@ public class Main {
                     o.getPrice() == 0 ? "FREE" : "ETB " + o.getPrice(),
                     o.getStatus());
         }
-        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
+        System.out.println(" ");
     }
 
     static void trackOrder() {
@@ -262,9 +262,9 @@ public class Main {
                 throw new ValidationException("Order not found: " + orderNum);
             }
 
-            System.out.println("\n==============================================");
+            System.out.println("\n ");
             System.out.println("   ETHIOPIA PLATE ORDER DETAILS");
-            System.out.println("==============================================");
+            System.out.println(" ");
             System.out.println("  Order Number  : " + o.getOrderNumber());
             System.out.println("  Date          : " + o.getDate());
             System.out.println("----------------------------------------------");
