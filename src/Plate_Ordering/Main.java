@@ -392,7 +392,7 @@ public class Main {
     static String buildReceipt(PlateOrder o) {
         return "================================================\n"
                 + "   ETHIOPIA CAR PLATE RECEIPT\n"
-                + "   Ethiopian Transport Authority (ETA)\n"
+                + "   Minister of Transport and Logistic(MOTL)"
                 + "================================================\n"
                 + "Order Number  : " + o.getOrderNumber() + "\n"
                 + "Date          : " + o.getDate() + "\n"
