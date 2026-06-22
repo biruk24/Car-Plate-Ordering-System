@@ -4,7 +4,7 @@ package Plate_Ordering;
 import java.io.*;
 import java.util.*;
 
-public class Filee {
+public class FileHelper {
 
     private static final String USERS_FILE = "users.txt";
     private static final String ORDERS_FILE = "orders.txt";
