@@ -267,16 +267,16 @@ public class Main {
             System.out.println(" ");
             System.out.println("  Order Number  : " + o.getOrderNumber());
             System.out.println("  Date          : " + o.getDate());
-            System.out.println("----------------------------------------------");
+            System.out.println(" ");
             System.out.println("  Owner Name    : " + o.getOwnerName());
             System.out.println("  Category      : " + o.getCategoryName());
             System.out.println("  Chassis #     : " + o.getChassisNumber());
             System.out.println("  Former Plate  : " + o.getFormerPlate());
-            System.out.println("----------------------------------------------");
+            System.out.println(" ");
             System.out.println("  Virtual Plate : " + o.getVirtualPlate());
             System.out.println("  Amount        : " + (o.getPrice() == 0 ? "FREE" : "ETB " + o.getPrice()));
             System.out.println("  STATUS        : " + o.getStatus());
-            System.out.println("==============================================");
+            System.out.println(" ");
 
             if (o.getStatus().equals("READY") || o.getStatus().equals("APPROVED")) {
                 System.out.println("  Your plate is READY. Visit the Transport");
