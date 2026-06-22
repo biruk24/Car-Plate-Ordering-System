@@ -68,7 +68,7 @@ public class Main {
             }
 
         } catch (LoginException e) {
-            // Chapter 5: catch and print the error
+            
             System.out.println("Login failed: " + e.getMessage());
         }
     }
@@ -145,7 +145,7 @@ public class Main {
     static void orderNewPlate() {
         System.out.println("\n ORDER NEW PLATE ");
 
-        // Show all 13 categories
+        
         System.out.println("\nVehicle Categories:");
         VehicleCategory[] cats = VehicleCategory.values();
         for (int i = 0; i < cats.length; i++) {
