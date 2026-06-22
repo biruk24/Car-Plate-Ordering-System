@@ -14,10 +14,10 @@ public class Main {
     public static void main(String[] args) {
         Database.getInstance();
 
-        System.out.println("==============================================");
+        System.out.println(" ");
         System.out.println("   ETHIOPIA CAR PLATE ORDERING SYSTEM");
         System.out.println("   Minister of Transport and Logistic(MOTL)");
-        System.out.println("==============================================");
+        System.out.println(" ");
 
         boolean running = true;
         while (running) {
@@ -41,7 +41,7 @@ public class Main {
     }
 
     static void login() {
-        System.out.println("\n--- LOGIN ---");
+        System.out.println("\n LOGIN ");
         System.out.print("Username: ");
         String username = scanner.nextLine().trim();
         System.out.print("Password: ");
