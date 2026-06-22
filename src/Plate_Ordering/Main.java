@@ -74,7 +74,7 @@ public class Main {
     }
 
     static void register() {
-        System.out.println("\n--- REGISTER NEW ACCOUNT ---");
+        System.out.println("\n REGISTER NEW ACCOUNT ");
 
         System.out.print("Full Name: ");
         String fullName = scanner.nextLine().trim();
