@@ -202,15 +202,15 @@ public class Main {
             Database.getInstance().addOrder(order);
 
             System.out.println("\nVehicle Info: " + vehicle.getVehicleInfo());
-            System.out.println("\n==============================================");
+            System.out.println("\n ");
             System.out.println("  ORDER SUBMITTED SUCCESSFULLY!");
-            System.out.println("==============================================");
+            System.out.println(" ");
             System.out.println("  Order Number  : " + order.getOrderNumber());
             System.out.println("  Virtual Plate : " + order.getVirtualPlate());
             System.out.println("  Category      : " + order.getCategoryName());
             System.out.println("  Amount        : " + ("ETB " + order.getPrice()));
             System.out.println("  Date          : " + order.getDate());
-            System.out.println("==============================================");
+            System.out.println(" ");
             System.out.println("  Save your ORDER NUMBER to collect your");
             System.out.println("  physical plate at the Transport Authority.");
             System.out.println("==============================================");
