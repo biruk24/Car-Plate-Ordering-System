@@ -48,14 +48,7 @@ public class PlateOrder {
         System.out.println("=============================");
     }
 
-    public static void main(String[] args) {
-        User cust = new User("abc", "14qw", "kebe", "0914257861", "buy");
-        
-
-        PlateOrder order = new PlateOrder(null, 0, cust, null, null);
-
-        order.PlateOrderDisplay();
-    }
+    
 
 
 
