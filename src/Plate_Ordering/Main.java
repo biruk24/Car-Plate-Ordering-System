@@ -286,7 +286,7 @@ public class Main {
             } else if (o.getStatus().equals("COLLECTED")) {
                 System.out.println("  You have already collected this plate.");
             }
-            System.out.println("==============================================");
+            System.out.println(" ");
 
         } catch (ValidationException e) {
             System.out.println("Error: " + e.getMessage());
@@ -296,7 +296,7 @@ public class Main {
     static void adminMenu() {
         boolean running = true;
         while (running) {
-            System.out.println("\n--- ADMIN MENU ---");
+            System.out.println("\n ADMIN MENU ");
             System.out.println("1. View All Orders");
             System.out.println("2. Update Order Status");
             System.out.println("3. View All Users");
@@ -313,7 +313,7 @@ public class Main {
     }
 
     static void viewAllOrders() {
-        System.out.println("\n--- ALL ORDERS ---");
+        System.out.println("\n ALL ORDERS ");
         List<PlateOrder> orders = Database.getInstance().getAllOrders();
 
         if (orders.isEmpty()) {
