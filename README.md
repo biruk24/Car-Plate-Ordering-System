@@ -97,3 +97,78 @@ Car Plate Ordering System/
    downloaded jar.
 4. Make sure `src` is marked as the Sources Root.
 
+## Running the Application
+
+1. Open the project in IntelliJ IDEA.
+2. Run `Main.java` (`Plate_Ordering` package).
+3. On first run, the program automatically:
+   - Connects to (and creates, if needed) `carplate.db`
+   - Creates the `users` and `orders` tables
+   - Seeds one admin account and one sample user account
+4. Follow the on-screen menu to log in, register, or exit.
+
+## Default Accounts
+
+| Username | Password | Role |
+|---|---|---|
+| `admin` | `admin123` | ADMIN |
+| `abebe` | `pass123` | USER |
+
+> These are seeded automatically the first time the program runs against an
+> empty database.
+
+## Usage Walkthrough
+
+**As a regular user:**
+1. Register a new account or log in with `abebe` / `pass123`.
+2. Choose **Order New Plate**, pick a vehicle category (1–13), and enter the
+   chassis number, former plate, owner name, and color.
+3. Receive an order number (e.g. `ETH-1001`) and a randomly generated virtual
+   plate.
+4. Use **My Orders** to view all your past orders, or **Track Order** to look
+   up any order by its order number.
+
+**As an admin:**
+1. Log in with `admin` / `admin123`.
+2. Use **View All Orders** to see every order in the system.
+3. Use **Update Order Status** to move an order through
+   `PENDING → APPROVED → READY → COLLECTED`.
+4. Use **View All Users** to see every registered account.
+
+## Database Schema
+
+```sql
+CREATE TABLE users (
+    username TEXT PRIMARY KEY,
+    password TEXT NOT NULL,
+    fullName TEXT NOT NULL,
+    phone    TEXT NOT NULL,
+    role     TEXT NOT NULL
+);
+
+CREATE TABLE orders (
+    orderNumber   TEXT PRIMARY KEY,
+    username      TEXT NOT NULL,
+    categoryName  TEXT NOT NULL,
+    chassisNumber TEXT NOT NULL,
+    formerPlate   TEXT NOT NULL,
+    ownerName     TEXT NOT NULL,
+    virtualPlate  TEXT NOT NULL,
+    price         INTEGER NOT NULL,
+    status        TEXT NOT NULL,
+    orderDate     TEXT NOT NULL,
+    FOREIGN KEY (username) REFERENCES users(username)
+);
+```
+
+## Known Limitations / Future Improvements
+
+- Passwords are stored in plain text; a future version should hash them
+  (e.g. SHA-256) before storing.
+- The connection opened in `DBConnection` is never explicitly closed; fine for
+  a short-lived console app, but a GUI/long-running version should close it
+  on exit.
+- No GUI — built as a console application to keep focus on the core OOP and
+  JDBC concepts.
+- `carplate.db` is excluded from version control (see `.gitignore`) so each
+  environment starts with a fresh, freshly-seeded database.
