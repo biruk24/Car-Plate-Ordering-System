@@ -167,6 +167,9 @@ public class Main {
         String color = scanner.nextLine().trim();
 
         try {
+            if (catInput.isEmpty()) {
+                throw new ValidationException("Category choice cannot be empty.");
+            }
             int catIndex;
             try {
                 catIndex = Integer.parseInt(catInput) - 1;
@@ -213,17 +216,11 @@ public class Main {
             System.out.println("  physical plate at the Transport Authority.");
 
             System.out.println("==============================================");
-        } catch (LoginException e) {
-
-            System.out.println(" ");
-        } if (catInput.isEmpty()){
-            try {
-                throw new ValidationException("Input cannot be empty");
-            } catch (ValidationException e) {
-                throw new RuntimeException(e);
-            }
+        } catch (LoginException | ValidationException e) {
+            System.out.println("Order failed: " + e.getMessage());
         }
     }
+
 
     static void myOrders() {
         System.out.println("\n MY ORDERS ");
