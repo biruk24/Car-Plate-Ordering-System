@@ -409,10 +409,10 @@ public class Main {
                 + "Virtual Plate : " + o.getVirtualPlate() + "\n"
                 + "Amount        : " + (o.getPrice() == 0 ? "FREE" : "ETB " + o.getPrice()) + "\n"
                 + "Status        : " + o.getStatus() + "\n"
-                + "================================================\n"
-                + "Present this receipt at the ETA office to\n"
-                + "collect your physical plate.\n"
-                + "================================================\n";
+
+                + "Present this receipt at the MOTL office to\n"
+                + "collect your physical plate.\n";
+
     }
 }
 
