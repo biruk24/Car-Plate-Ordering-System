@@ -2,3 +2,5 @@ admin|admin123|System Admin|0900000000|ADMIN
 abebe|pass123|Abebe Kebede|0911234567|USER
 spiderman|spiderman2244|Spider Man|0921234423|USER
 biruk123|12345678|Biruk Lemma|0912345678|USER
+sami12|12345678|samuel|0911223344|USER
+dani|12345678|Daniel|0987654321|USER

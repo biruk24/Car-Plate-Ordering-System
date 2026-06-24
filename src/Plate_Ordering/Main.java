@@ -111,6 +111,9 @@ public class Main {
 
             User newUser = new User(username, password, fullName, phone, "USER");
             Database.getInstance().addUser(newUser);
+            List<User> users = FileHelper.loadUsers();
+            users.add(newUser);
+            FileHelper.saveUsers(users);
 
             System.out.println("Account created! You can now login with username: " + username);
 
@@ -200,6 +203,9 @@ public class Main {
                     chassis, formerPlate, ownerName, date);
 
             Database.getInstance().addOrder(order);
+            List<PlateOrder> orderList = FileHelper.loadOrders();
+            orderList.add(order);
+            FileHelper.saveOrders(orderList);
 
             System.out.println("\nVehicle Info: " + vehicle.getVehicleInfo());
             System.out.println("\n ");
