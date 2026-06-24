@@ -14,10 +14,9 @@ public class Main {
         Database.getInstance();
 
         System.out.println(" ");
+        System.out.println(" ");
         System.out.println("   ETHIOPIA CAR PLATE ORDERING SYSTEM");
         System.out.println("   Minister of Transport and Logistic(MOTL)");
-        System.out.println(" ");
-
         boolean running = true;
         while (running) {
             System.out.println("\n1. Login");
@@ -31,7 +30,7 @@ public class Main {
             } else if (choice.equals("2")) {
                 register();
             } else if (choice.equals("3")) {
-                System.out.println("Goodbye!");
+                System.out.println("Goodbye");
                 running = false;
             } else {
                 System.out.println("Invalid choice. Try again.");
@@ -215,7 +214,6 @@ public class Main {
             System.out.println("  Save your ORDER NUMBER to collect your");
             System.out.println("  physical plate at the Transport Authority.");
 
-            System.out.println("==============================================");
         } catch (LoginException | ValidationException e) {
             System.out.println("Order failed: " + e.getMessage());
         }
@@ -243,7 +241,7 @@ public class Main {
                     o.getCategoryName(),
                     o.getOwnerName(),
                     o.getVirtualPlate(),
-                    o.getPrice() == 0 ? "FREE" : "ETB " + o.getPrice(),
+                    "ETB " + o.getPrice(),
                     o.getStatus());
         }
         System.out.println(" ");
@@ -277,7 +275,7 @@ public class Main {
             System.out.println("  Former Plate  : " + o.getFormerPlate());
             System.out.println(" ");
             System.out.println("  Virtual Plate : " + o.getVirtualPlate());
-            System.out.println("  Amount        : " + (o.getPrice() == 0 ? "FREE" : "ETB " + o.getPrice()));
+            System.out.println("  Amount        : " + ("ETB " + o.getPrice()));
             System.out.println("  STATUS        : " + o.getStatus());
             System.out.println(" ");
 
@@ -336,7 +334,7 @@ public class Main {
                     o.getCategoryName(),
                     o.getOwnerName(),
                     o.getVirtualPlate(),
-                    o.getPrice() == 0 ? "FREE" : "" + o.getPrice(),
+                    "ETB" + o.getPrice(),
                     o.getStatus());
         }
         System.out.println("-------------------------------------------------------------------");
@@ -392,10 +390,10 @@ public class Main {
     }
 
     static String buildReceipt(PlateOrder o) {
-        return "================================================\n"
+        return "_____________________________________________________\n"
                 + "   ETHIOPIA CAR PLATE RECEIPT\n"
                 + "   Minister of Transport and Logistic(MOTL)"
-                + "================================================\n"
+                + "__________________________________________________\n"
                 + "Order Number  : " + o.getOrderNumber() + "\n"
                 + "Date          : " + o.getDate() + "\n"
                 + "Applicant     : " + currentUser.getFullName() + "\n"
@@ -407,7 +405,7 @@ public class Main {
                 + "Former Plate  : " + o.getFormerPlate() + "\n"
                 + "------------------------------------------------\n"
                 + "Virtual Plate : " + o.getVirtualPlate() + "\n"
-                + "Amount        : " + (o.getPrice() == 0 ? "FREE" : "ETB " + o.getPrice()) + "\n"
+                + "Amount        : " + ("ETB " + o.getPrice()) + "\n"
                 + "Status        : " + o.getStatus() + "\n"
 
                 + "Present this receipt at the MOTL office to\n"
